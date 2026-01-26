@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -140,7 +142,7 @@ export default function AdminDisputes() {
                         </div>
                       </div>
                       <Button variant="outline" size="sm" asChild>
-                        <Link to={`/disputes/${dispute.id}`}>
+                        <Link href={`/disputes/${dispute.id}`}>
                           <Eye className="h-4 w-4 mr-1" />
                           Review
                         </Link>

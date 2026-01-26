@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -45,7 +48,7 @@ export default function DisputeDetail() {
         <div className="text-center py-12">
           <h1 className="text-2xl font-bold mb-4">Dispute Not Found</h1>
           <Button asChild>
-            <Link to="/disputes">Back to Disputes</Link>
+            <Link href="/disputes">Back to Disputes</Link>
           </Button>
         </div>
       </DashboardLayout>
@@ -99,7 +102,7 @@ export default function DisputeDetail() {
         {/* Header */}
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
-            <Link to="/disputes">
+            <Link href="/disputes">
               <ArrowLeft className="h-5 w-5" />
             </Link>
           </Button>
@@ -352,7 +355,7 @@ export default function DisputeDetail() {
                 </div>
                 <Separator />
                 <Button variant="outline" className="w-full" asChild>
-                  <Link to={`/transactions/${dispute.transactionId}`}>
+                  <Link href={`/transactions/${dispute.transactionId}`}>
                     View Transaction
                   </Link>
                 </Button>

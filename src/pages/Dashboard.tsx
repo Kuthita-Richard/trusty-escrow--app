@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -46,7 +48,7 @@ export default function Dashboard() {
             <p className="text-muted-foreground">Here's an overview of your escrow activity</p>
           </div>
           <Button asChild>
-            <Link to="/transactions/new">
+            <Link href="/transactions/new">
               <Plus className="mr-2 h-4 w-4" /> New Transaction
             </Link>
           </Button>
@@ -119,7 +121,7 @@ export default function Dashboard() {
                 </div>
               </div>
               <Button variant="outline" asChild>
-                <Link to="/profile">Complete Now</Link>
+                <Link href="/profile">Complete Now</Link>
               </Button>
             </CardContent>
           </Card>
@@ -133,7 +135,7 @@ export default function Dashboard() {
               <CardDescription>Your latest escrow activity</CardDescription>
             </div>
             <Button variant="outline" asChild>
-              <Link to="/transactions">View All</Link>
+              <Link href="/transactions">View All</Link>
             </Button>
           </CardHeader>
           <CardContent>
@@ -141,7 +143,7 @@ export default function Dashboard() {
               <div className="text-center py-8">
                 <p className="text-muted-foreground">No transactions yet</p>
                 <Button className="mt-4" asChild>
-                  <Link to="/transactions/new">Create Your First Transaction</Link>
+                  <Link href="/transactions/new">Create Your First Transaction</Link>
                 </Button>
               </div>
             ) : (
@@ -151,7 +153,7 @@ export default function Dashboard() {
                   return (
                     <Link
                       key={transaction.id}
-                      to={`/transactions/${transaction.id}`}
+                      href={`/transactions/${transaction.id}`}
                       className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors"
                     >
                       <div className="flex items-center gap-4">

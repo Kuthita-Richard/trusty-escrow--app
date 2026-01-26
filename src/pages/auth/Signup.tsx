@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -16,7 +19,7 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -49,14 +52,14 @@ export default function Signup() {
         description: "Please verify your email to continue.",
       });
       setIsLoading(false);
-      navigate("/verify-phone");
+      router.push("/verify-phone");
     }, 1000);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
-        <Link to="/" className="flex items-center justify-center gap-2 mb-8">
+        <Link href="/" className="flex items-center justify-center gap-2 mb-8">
           <Shield className="h-8 w-8 text-primary" />
           <span className="text-2xl font-bold">SecureEscrow</span>
         </Link>
@@ -135,11 +138,11 @@ export default function Signup() {
                 />
                 <Label htmlFor="terms" className="text-sm font-normal">
                   I agree to the{" "}
-                  <Link to="/terms" className="text-primary hover:underline">
+                  <Link href="/terms" className="text-primary hover:underline">
                     Terms of Service
                   </Link>{" "}
                   and{" "}
-                  <Link to="/privacy" className="text-primary hover:underline">
+                  <Link href="/privacy" className="text-primary hover:underline">
                     Privacy Policy
                   </Link>
                 </Label>
@@ -151,7 +154,7 @@ export default function Signup() {
               </Button>
               <p className="text-sm text-muted-foreground text-center">
                 Already have an account?{" "}
-                <Link to="/login" className="text-primary hover:underline font-medium">
+                <Link href="/login" className="text-primary hover:underline font-medium">
                   Sign in
                 </Link>
               </p>

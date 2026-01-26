@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,7 +21,7 @@ interface Milestone {
 }
 
 export default function NewTransaction() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -93,7 +96,7 @@ export default function NewTransaction() {
         {/* Header */}
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
-            <Link to="/transactions">
+            <Link href="/transactions">
               <ArrowLeft className="h-5 w-5" />
             </Link>
           </Button>
@@ -271,7 +274,7 @@ export default function NewTransaction() {
               type="button"
               variant="outline"
               className="flex-1"
-              onClick={() => navigate("/transactions")}
+              onClick={() => router.push("/transactions")}
             >
               Cancel
             </Button>

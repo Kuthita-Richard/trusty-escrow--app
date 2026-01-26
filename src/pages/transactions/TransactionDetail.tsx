@@ -1,4 +1,7 @@
-import { useParams, Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -36,7 +39,7 @@ export default function TransactionDetail() {
         <div className="text-center py-12">
           <h1 className="text-2xl font-bold mb-4">Transaction Not Found</h1>
           <Button asChild>
-            <Link to="/transactions">Back to Transactions</Link>
+            <Link href="/transactions">Back to Transactions</Link>
           </Button>
         </div>
       </DashboardLayout>
@@ -68,7 +71,7 @@ export default function TransactionDetail() {
         {/* Header */}
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
-            <Link to="/transactions">
+            <Link href="/transactions">
               <ArrowLeft className="h-5 w-5" />
             </Link>
           </Button>
@@ -156,7 +159,7 @@ export default function TransactionDetail() {
                 )}
                 {!["released", "cancelled", "disputed"].includes(transaction.status) && (
                   <Button variant="destructive" asChild>
-                    <Link to={`/disputes/new?transaction=${transaction.id}`}>
+                    <Link href={`/disputes/new?transaction=${transaction.id}`}>
                       <AlertTriangle className="mr-2 h-4 w-4" />
                       Open Dispute
                     </Link>
@@ -164,7 +167,7 @@ export default function TransactionDetail() {
                 )}
                 {transaction.status === "disputed" && (
                   <Button variant="outline" asChild>
-                    <Link to={`/disputes`}>
+                    <Link href={`/disputes`}>
                       <MessageSquare className="mr-2 h-4 w-4" />
                       View Dispute
                     </Link>

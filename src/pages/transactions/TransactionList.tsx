@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,7 +69,7 @@ export default function TransactionList() {
             <p className="text-muted-foreground">Manage all your escrow transactions</p>
           </div>
           <Button asChild>
-            <Link to="/transactions/new">
+            <Link href="/transactions/new">
               <Plus className="mr-2 h-4 w-4" /> New Transaction
             </Link>
           </Button>
@@ -122,7 +124,7 @@ export default function TransactionList() {
               <div className="text-center py-12">
                 <p className="text-muted-foreground mb-4">No transactions found</p>
                 <Button asChild>
-                  <Link to="/transactions/new">Create Your First Transaction</Link>
+                  <Link href="/transactions/new">Create Your First Transaction</Link>
                 </Button>
               </div>
             ) : (
@@ -132,7 +134,7 @@ export default function TransactionList() {
                   return (
                     <Link
                       key={transaction.id}
-                      to={`/transactions/${transaction.id}`}
+                      href={`/transactions/${transaction.id}`}
                       className="flex items-center justify-between p-4 rounded-lg border hover:bg-muted/50 transition-colors"
                     >
                       <div className="flex items-center gap-4">

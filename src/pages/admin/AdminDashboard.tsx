@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -112,7 +114,7 @@ export default function AdminDashboard() {
 
         {/* Quick Actions */}
         <div className="grid gap-4 md:grid-cols-3">
-        <Link to="/admin/verifications">
+        <Link href="/admin/verifications">
           <Card className="hover:border-primary/50 transition-colors cursor-pointer">
             <CardContent className="flex items-center gap-4 pt-6">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -126,7 +128,7 @@ export default function AdminDashboard() {
           </Card>
         </Link>
 
-        <Link to="/admin/disputes">
+        <Link href="/admin/disputes">
           <Card className="hover:border-primary/50 transition-colors cursor-pointer">
             <CardContent className="flex items-center gap-4 pt-6">
               <div className="h-12 w-12 rounded-full bg-destructive/10 flex items-center justify-center">
@@ -140,7 +142,7 @@ export default function AdminDashboard() {
           </Card>
         </Link>
 
-        <Link to="/admin/transactions">
+        <Link href="/admin/transactions">
           <Card className="hover:border-primary/50 transition-colors cursor-pointer">
             <CardContent className="flex items-center gap-4 pt-6">
               <div className="h-12 w-12 rounded-full bg-warning/10 flex items-center justify-center">
@@ -166,7 +168,7 @@ export default function AdminDashboard() {
                 <CardDescription>Latest platform activity</CardDescription>
               </div>
               <Button variant="outline" size="sm" asChild>
-                <Link to="/admin/transactions">View All</Link>
+                <Link href="/admin/transactions">View All</Link>
               </Button>
             </CardHeader>
             <CardContent>
@@ -207,7 +209,7 @@ export default function AdminDashboard() {
                 <CardDescription>Disputes requiring attention</CardDescription>
               </div>
               <Button variant="outline" size="sm" asChild>
-                <Link to="/admin/disputes">View All</Link>
+                <Link href="/admin/disputes">View All</Link>
               </Button>
             </CardHeader>
             <CardContent>

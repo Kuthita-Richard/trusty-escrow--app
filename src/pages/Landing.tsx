@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/layout/Header";
@@ -95,12 +97,12 @@ export default function Landing() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <Link to="/signup">
+                <Link href="/signup">
                   Start Free <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/#how-it-works">See How It Works</Link>
+                <Link href="/#how-it-works">See How It Works</Link>
               </Button>
             </div>
           </div>
@@ -189,10 +191,10 @@ export default function Landing() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="secondary" asChild>
-                    <Link to="/signup">Create Free Account</Link>
+                    <Link href="/signup">Create Free Account</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-                    <Link to="/contact">Contact Sales</Link>
+                    <Link href="/contact">Contact Sales</Link>
                   </Button>
                 </div>
               </div>

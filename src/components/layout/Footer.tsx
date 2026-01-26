@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Shield } from "lucide-react";
 
 export function Footer() {
@@ -7,7 +9,7 @@ export function Footer() {
       <div className="container py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               <Shield className="h-6 w-6 text-primary" />
               <span className="text-lg font-bold">SecureEscrow</span>
             </Link>
@@ -19,27 +21,27 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Platform</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/#features" className="hover:text-foreground transition-colors">Features</Link></li>
-              <li><Link to="/#how-it-works" className="hover:text-foreground transition-colors">How It Works</Link></li>
-              <li><Link to="/pricing" className="hover:text-foreground transition-colors">Pricing</Link></li>
+              <li><Link href="/#features" className="hover:text-foreground transition-colors">Features</Link></li>
+              <li><Link href="/#how-it-works" className="hover:text-foreground transition-colors">How It Works</Link></li>
+              <li><Link href="/pricing" className="hover:text-foreground transition-colors">Pricing</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link></li>
-              <li><Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/refund" className="hover:text-foreground transition-colors">Refund Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link></li>
+              <li><Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/refund" className="hover:text-foreground transition-colors">Refund Policy</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/help" className="hover:text-foreground transition-colors">Help Center</Link></li>
-              <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact Us</Link></li>
-              <li><Link to="/faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
+              <li><Link href="/help" className="hover:text-foreground transition-colors">Help Center</Link></li>
+              <li><Link href="/contact" className="hover:text-foreground transition-colors">Contact Us</Link></li>
+              <li><Link href="/faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
             </ul>
           </div>
         </div>

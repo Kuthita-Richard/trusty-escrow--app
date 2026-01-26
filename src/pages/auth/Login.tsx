@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,7 +15,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,14 +29,14 @@ export default function Login() {
         description: "You have successfully logged in.",
       });
       setIsLoading(false);
-      navigate("/dashboard");
+      router.push("/dashboard");
     }, 1000);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
-        <Link to="/" className="flex items-center justify-center gap-2 mb-8">
+        <Link href="/" className="flex items-center justify-center gap-2 mb-8">
           <Shield className="h-8 w-8 text-primary" />
           <span className="text-2xl font-bold">SecureEscrow</span>
         </Link>
@@ -59,7 +62,7 @@ export default function Login() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Password</Label>
-                  <Link to="/forgot-password" className="text-sm text-primary hover:underline">
+                  <Link href="/forgot-password" className="text-sm text-primary hover:underline">
                     Forgot password?
                   </Link>
                 </div>
@@ -90,7 +93,7 @@ export default function Login() {
               </Button>
               <p className="text-sm text-muted-foreground text-center">
                 Don't have an account?{" "}
-                <Link to="/signup" className="text-primary hover:underline font-medium">
+                <Link href="/signup" className="text-primary hover:underline font-medium">
                   Create one
                 </Link>
               </p>

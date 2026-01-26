@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -161,7 +163,7 @@ export default function AdminTransactions() {
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-2">
                           <Button variant="ghost" size="icon" asChild>
-                            <Link to={`/transactions/${transaction.id}`}>
+                            <Link href={`/transactions/${transaction.id}`}>
                               <Eye className="h-4 w-4" />
                             </Link>
                           </Button>

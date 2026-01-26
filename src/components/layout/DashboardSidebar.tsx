@@ -1,4 +1,7 @@
-import { useLocation, Link } from "react-router-dom";
+"use client";
+
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   Sidebar,
   SidebarContent,
@@ -45,10 +48,10 @@ const adminMenuItems = [
 export function DashboardSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
-  const location = useLocation();
+  const pathname = usePathname();
   const user = currentUser;
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <Sidebar collapsible="icon" className="border-r">
@@ -66,7 +69,7 @@ export function DashboardSidebar() {
                     isActive={isActive(item.url)}
                     tooltip={item.title}
                   >
-                    <Link to={item.url}>
+                    <Link href={item.url}>
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </Link>
@@ -91,7 +94,7 @@ export function DashboardSidebar() {
                       isActive={isActive(item.url)}
                       tooltip={item.title}
                     >
-                      <Link to={item.url}>
+                      <Link href={item.url}>
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>
                       </Link>

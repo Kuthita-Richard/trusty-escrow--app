@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,7 +16,7 @@ export default function VerifyPhone() {
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
 
   const handleSendOtp = async (e: React.FormEvent) => {
@@ -42,14 +45,14 @@ export default function VerifyPhone() {
         description: "Your phone number has been verified successfully.",
       });
       setIsLoading(false);
-      navigate("/dashboard");
+      router.push("/dashboard");
     }, 1000);
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
-        <Link to="/" className="flex items-center justify-center gap-2 mb-8">
+        <Link href="/" className="flex items-center justify-center gap-2 mb-8">
           <Shield className="h-8 w-8 text-primary" />
           <span className="text-2xl font-bold">SecureEscrow</span>
         </Link>
@@ -92,7 +95,7 @@ export default function VerifyPhone() {
                   type="button"
                   variant="ghost"
                   className="w-full"
-                  onClick={() => navigate("/dashboard")}
+                  onClick={() => router.push("/dashboard")}
                 >
                   Skip for now
                 </Button>

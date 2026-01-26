@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -11,7 +14,7 @@ import { useToast } from "@/hooks/use-toast";
 import { currentUser, getTransactionsByUser, formatCurrency } from "@/lib/dummy-data";
 
 export default function NewDispute() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { toast } = useToast();
   const [searchParams] = useSearchParams();
   const preselectedTransaction = searchParams.get("transaction");
@@ -46,7 +49,7 @@ export default function NewDispute() {
         description: "Your dispute has been submitted. Our team will review it shortly.",
       });
       setIsLoading(false);
-      navigate("/disputes");
+      router.push("/disputes");
     }, 1500);
   };
 
@@ -56,7 +59,7 @@ export default function NewDispute() {
         {/* Header */}
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
-            <Link to="/disputes">
+            <Link href="/disputes">
               <ArrowLeft className="h-5 w-5" />
             </Link>
           </Button>
@@ -179,7 +182,7 @@ export default function NewDispute() {
               type="button"
               variant="outline"
               className="flex-1"
-              onClick={() => navigate("/disputes")}
+              onClick={() => router.push("/disputes")}
             >
               Cancel
             </Button>

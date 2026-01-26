@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -22,7 +24,7 @@ export function Header({ isAuthenticated = false }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Shield className="h-8 w-8 text-primary" />
           <span className="text-xl font-bold">SecureEscrow</span>
         </Link>
@@ -30,27 +32,27 @@ export function Header({ isAuthenticated = false }: HeaderProps) {
         <nav className="hidden md:flex items-center gap-6">
           {isAuthenticated ? (
             <>
-              <Link to="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Dashboard
               </Link>
-              <Link to="/transactions" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/transactions" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Transactions
               </Link>
-              <Link to="/disputes" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/disputes" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Disputes
               </Link>
               {user.role === 'admin' && (
-                <Link to="/admin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                <Link href="/admin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                   Admin
                 </Link>
               )}
             </>
           ) : (
             <>
-              <Link to="/#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Features
               </Link>
-              <Link to="/#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 How It Works
               </Link>
             </>
@@ -85,20 +87,20 @@ export function Header({ isAuthenticated = false }: HeaderProps) {
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link to="/profile" className="flex items-center">
+                    <Link href="/profile" className="flex items-center">
                       <User className="mr-2 h-4 w-4" />
                       Profile
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link to="/settings" className="flex items-center">
+                    <Link href="/settings" className="flex items-center">
                       <Settings className="mr-2 h-4 w-4" />
                       Settings
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link to="/login" className="flex items-center text-destructive">
+                    <Link href="/login" className="flex items-center text-destructive">
                       <LogOut className="mr-2 h-4 w-4" />
                       Log out
                     </Link>
@@ -109,10 +111,10 @@ export function Header({ isAuthenticated = false }: HeaderProps) {
           ) : (
             <>
               <Button variant="ghost" asChild>
-                <Link to="/login">Sign In</Link>
+                <Link href="/login">Sign In</Link>
               </Button>
               <Button asChild>
-                <Link to="/signup">Get Started</Link>
+                <Link href="/signup">Get Started</Link>
               </Button>
             </>
           )}
