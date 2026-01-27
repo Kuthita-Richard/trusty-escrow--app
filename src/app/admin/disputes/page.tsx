@@ -1,4 +1,4 @@
-import { AdminDisputes } from "@/pages/admin/AdminDisputes";
+import { AdminDisputes } from "@/screens/admin/AdminDisputes";
 
 export default function Page() {
   return <AdminDisputes />;

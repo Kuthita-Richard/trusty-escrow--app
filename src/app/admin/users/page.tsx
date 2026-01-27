@@ -1,4 +1,4 @@
-import { AdminUsers } from "@/pages/admin/AdminUsers";
+import { AdminUsers } from "@/screens/admin/AdminUsers";
 
 export default function Page() {
   return <AdminUsers />;

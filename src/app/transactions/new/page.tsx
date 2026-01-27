@@ -1,4 +1,4 @@
-import { NewTransaction } from "@/pages/transactions/NewTransaction";
+import { NewTransaction } from "@/screens/transactions/NewTransaction";
 
 export default function Page() {
   return <NewTransaction />;

@@ -1,4 +1,4 @@
-import { TransactionList } from "@/pages/transactions/TransactionList";
+import { TransactionList } from "@/screens/transactions/TransactionList";
 
 export default function Page() {
   return <TransactionList />;

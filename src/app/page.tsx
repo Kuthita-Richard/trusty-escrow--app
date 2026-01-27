@@ -1,6 +1,6 @@
 "use client";
 
-import Landing from "@/pages/Landing";
+import Landing from "@/screens/Landing";
 
 export default function Page() {
   return <Landing />;

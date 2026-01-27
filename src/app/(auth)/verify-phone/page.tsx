@@ -1,4 +1,4 @@
-import VerifyPhone from "@/pages/auth/VerifyPhone";
+import VerifyPhone from "@/screens/auth/VerifyPhone";
 
 export default function Page() {
   return <VerifyPhone />;
